@@ -93,69 +93,67 @@
 
   <!-- Dynamic Publications Loader -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let publications = [];
-
-      async function loadPublications() {
-        try {
-          const res = await fetch('publications.json');
-          publications = await res.json();
-          renderPublications();
-        } catch (err) {
-          document.getElementById('publicationList').innerHTML = `<div class="col-12"><p>Error loading publications.</p></div>`;
-          console.error(err);
-        }
+    let publications = [];
+  
+    // Load JSON data
+    async function loadPublications() {
+      try {
+        const res = await fetch('publications.json');
+        publications = await res.json();
+        renderPublications();
+      } catch (error) {
+        console.error("Error loading publications:", error);
       }
-
-      function renderPublications() {
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const filterCategory = document.getElementById('filterCategory').value;
-
-        const filtered = publications.filter(pub => {
-          const matchesSearch =
-            pub.title.toLowerCase().includes(searchTerm) ||
-            pub.authors.toLowerCase().includes(searchTerm);
-
-          const matchesCategory = !filterCategory || pub.category === filterCategory;
-
-          return matchesSearch && matchesCategory;
-        });
-
-        const container = document.getElementById('publicationList');
-        container.innerHTML = '';
-
-        if (filtered.length === 0) {
-          container.innerHTML = `<div class="col-12"><p>No results found.</p></div>`;
-          return;
-        }
-
-        filtered.forEach(pub => {
-          container.innerHTML += `
-            <div class="col-md-6">
-              <div class="publication-entry">
-                <h5>${highlight(pub.title)}</h5>
-                <p><strong>Category:</strong> ${pub.category}</p>
-                <p><strong>Authors:</strong> ${highlight(pub.authors)}</p>
-                <a href="${pub.link}" target="_blank" class="text-button">View Paper <i class="fa fa-arrow-right"></i></a>
-              </div>
+    }
+  
+    // Highlight matched text
+    function highlight(text, keyword) {
+      if (!keyword) return text;
+      const regex = new RegExp(`(${keyword})`, 'gi');
+      return text.replace(regex, '<mark>$1</mark>');
+    }
+  
+    // Render filtered + highlighted publications
+    function renderPublications() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const filterCategory = document.getElementById('filterCategory').value;
+  
+      const container = document.getElementById('publicationList');
+      container.innerHTML = '';
+  
+      const filtered = publications.filter(pub => {
+        const matchText = `${pub.title} ${pub.authors}`.toLowerCase();
+        const matchesSearch = matchText.includes(searchTerm);
+        const matchesCategory = !filterCategory || pub.category === filterCategory;
+        return matchesSearch && matchesCategory;
+      });
+  
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="col-12"><p>No results found.</p></div>`;
+        return;
+      }
+  
+      filtered.forEach(pub => {
+        container.innerHTML += `
+          <div class="col-md-6 mb-4">
+            <div class="p-3 border rounded bg-white shadow-sm">
+              <h5>${highlight(pub.title, searchTerm)}</h5>
+              <p><strong>Category:</strong> ${pub.category}</p>
+              <p><strong>Authors:</strong> ${highlight(pub.authors, searchTerm)}</p>
+              <a href="${pub.link}" target="_blank" class="text-button">View Paper <i class="fa fa-arrow-right"></i></a>
             </div>
-          `;
-        });
-      }
-
-      function highlight(text) {
-        const input = document.getElementById('searchInput').value;
-        if (!input) return text;
-        const regex = new RegExp(`(${input})`, 'gi');
-        return text.replace(regex, `<mark>$1</mark>`);
-      }
-
-      document.getElementById('searchInput').addEventListener('input', renderPublications);
-      document.getElementById('filterCategory').addEventListener('change', renderPublications);
-
-      loadPublications();
-    });
+          </div>`;
+      });
+    }
+  
+    // Add event listeners
+    document.getElementById('searchInput').addEventListener('input', renderPublications);
+    document.getElementById('filterCategory').addEventListener('change', renderPublications);
+  
+    // Initial load
+    loadPublications();
   </script>
+  
 
 </body>
 
