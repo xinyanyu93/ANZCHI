@@ -1,0 +1,47 @@
+[
+    {
+        "title": "Designing Playful Urban Robots",
+        "category": "Full Paper",
+        "authors": [
+            "Xinyan Yu",
+            "John Smith"
+        ],
+        "link": "https://example.com/full-paper"
+    },
+    {
+        "title": "Real-time Interaction Demo",
+        "category": "Demo",
+        "authors": [
+            "Jane Doe",
+            "Xinyan Yu"
+        ],
+        "link": "https://example.com/demo"
+    },
+    {
+        "title": "Workshop on Urban HCI",
+        "category": "Workshop",
+        "authors": [
+            "Alice Zhang",
+            "Bob Lee"
+        ],
+        "link": "https://example.com/workshop"
+    },
+    {
+        "title": "Late-Breaking Work on Robotic Companions",
+        "category": "Late-Breaking Work",
+        "authors": [
+            "Chris Evans",
+            "Dana King"
+        ],
+        "link": "https://example.com/lbw"
+    },
+    {
+        "title": "Case Study: Robots in Public Spaces",
+        "category": "Case Study",
+        "authors": [
+            "Eli Stone",
+            "Fay Wong"
+        ],
+        "link": "https://example.com/casestudy"
+    }
+]

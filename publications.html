@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHI 2025 Publications</title>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/css/tooplate-artxibition.css" />
+
+  <style>
+    mark {
+      background-color: #fff3cd;
+      font-weight: bold;
+    }
+
+    .publication-entry {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">Art<em>Xibition</em></a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="publications.html" class="active">Publications</a></li>
+              <li><a href="rent-venue.html">Rent Venue</a></li>
+            </ul>
+            <a class='menu-trigger'><span>Menu</span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search and Filter -->
+  <section style="padding: 60px 0;">
+    <div class="container">
+      <h2 class="text-center mb-4">Search Publications</h2>
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search by title or author..." />
+        </div>
+        <div class="col-md-3">
+          <select id="filterCategory" class="form-control">
+            <option value="">All Categories</option>
+            <option value="Full Paper">Full Paper</option>
+            <option value="Demo">Demo</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Video Showcase">Video Showcase</option>
+            <option value="Late-Breaking Work">Late-Breaking Work</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="publicationList" class="row"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p class="copyright">
+            &copy; 2025 ANZ @ CHI. Design based on <a href="https://www.tooplate.com" target="_blank">Tooplate</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery-2.1.0.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!-- Dynamic Publications Loader -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let publications = [];
+
+      async function loadPublications() {
+        try {
+          const res = await fetch('publications.json');
+          publications = await res.json();
+          renderPublications();
+        } catch (err) {
+          document.getElementById('publicationList').innerHTML = `<div class="col-12"><p>Error loading publications.</p></div>`;
+          console.error(err);
+        }
+      }
+
+      function renderPublications() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const filterCategory = document.getElementById('filterCategory').value;
+
+        const filtered = publications.filter(pub => {
+          const matchesSearch =
+            pub.title.toLowerCase().includes(searchTerm) ||
+            pub.authors.toLowerCase().includes(searchTerm);
+
+          const matchesCategory = !filterCategory || pub.category === filterCategory;
+
+          return matchesSearch && matchesCategory;
+        });
+
+        const container = document.getElementById('publicationList');
+        container.innerHTML = '';
+
+        if (filtered.length === 0) {
+          container.innerHTML = `<div class="col-12"><p>No results found.</p></div>`;
+          return;
+        }
+
+        filtered.forEach(pub => {
+          container.innerHTML += `
+            <div class="col-md-6">
+              <div class="publication-entry">
+                <h5>${highlight(pub.title)}</h5>
+                <p><strong>Category:</strong> ${pub.category}</p>
+                <p><strong>Authors:</strong> ${highlight(pub.authors)}</p>
+                <a href="${pub.link}" target="_blank" class="text-button">View Paper <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      function highlight(text) {
+        const input = document.getElementById('searchInput').value;
+        if (!input) return text;
+        const regex = new RegExp(`(${input})`, 'gi');
+        return text.replace(regex, `<mark>$1</mark>`);
+      }
+
+      document.getElementById('searchInput').addEventListener('input', renderPublications);
+      document.getElementById('filterCategory').addEventListener('change', renderPublications);
+
+      loadPublications();
+    });
+  </script>
+
+</body>
+
+</html>
