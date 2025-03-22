@@ -123,7 +123,7 @@
   
     // Render filtered + highlighted publications
     function renderPublications() {
-  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
   const filterCategory = document.getElementById('filterCategory').value;
 
   const container = document.getElementById('publicationList');
@@ -150,7 +150,29 @@
     grouped[pub.category].push(pub);
   });
 
-  // Render each category section
+  // Define desired order
+  const categoryOrder = ['Full Paper', 'Late-Breaking Work'];
+
+  // Render in order
+  categoryOrder.forEach(category => {
+    if (grouped[category]) {
+      container.innerHTML += `<div class="col-12"><h4 class="mt-5 mb-3">${category}</h4></div>`;
+      grouped[category].forEach(pub => {
+        container.innerHTML += `
+          <div class="col-md-6 mb-4">
+            <div class="p-3 border rounded bg-white shadow-sm">
+              <h5>${highlight(pub.title, searchTerm)}</h5>
+              <p><strong>Category:</strong> ${pub.category}</p>
+              <p><strong>Authors:</strong> ${highlight(pub.authors.join(', '), searchTerm)}</p>
+              <a href="${pub.link}" target="_blank" class="text-button">View Paper <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div>`;
+      });
+      delete grouped[category]; // Avoid re-rendering
+    }
+  });
+
+  // Render the rest of the categories
   for (const category in grouped) {
     container.innerHTML += `<div class="col-12"><h4 class="mt-5 mb-3">${category}</h4></div>`;
     grouped[category].forEach(pub => {
