@@ -62,8 +62,8 @@
           <select id="filterCategory" class="form-control">
             <option value="">All Categories</option>
             <option value="Full Paper">Full Paper</option>
-            <option value="Demo">Demo</option>
             <option value="Workshop">Workshop</option>
+            <option value="Case Studies">Case Studies</option>
             <option value="Video Showcase">Video Showcase</option>
             <option value="Late-Breaking Work">Late-Breaking Work</option>
           </select>
@@ -115,36 +115,50 @@
   
     // Render filtered + highlighted publications
     function renderPublications() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-      const filterCategory = document.getElementById('filterCategory').value;
-  
-      const container = document.getElementById('publicationList');
-      container.innerHTML = '';
-  
-      const filtered = publications.filter(pub => {
-        const matchText = `${pub.title} ${pub.authors}`.toLowerCase();
-        const matchesSearch = matchText.includes(searchTerm);
-        const matchesCategory = !filterCategory || pub.category === filterCategory;
-        return matchesSearch && matchesCategory;
-      });
-  
-      if (filtered.length === 0) {
-        container.innerHTML = `<div class="col-12"><p>No results found.</p></div>`;
-        return;
-      }
-  
-      filtered.forEach(pub => {
-        container.innerHTML += `
-          <div class="col-md-6 mb-4">
-            <div class="p-3 border rounded bg-white shadow-sm">
-              <h5>${highlight(pub.title, searchTerm)}</h5>
-              <p><strong>Category:</strong> ${pub.category}</p>
-              <p><strong>Authors:</strong> ${highlight(pub.authors, searchTerm)}</p>
-              <a href="${pub.link}" target="_blank" class="text-button">View Paper <i class="fa fa-arrow-right"></i></a>
-            </div>
-          </div>`;
-      });
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  const filterCategory = document.getElementById('filterCategory').value;
+
+  const container = document.getElementById('publicationList');
+  container.innerHTML = '';
+
+  const filtered = publications.filter(pub => {
+    const matchText = `${pub.title} ${pub.authors.join(', ')}`.toLowerCase();
+    const matchesSearch = matchText.includes(searchTerm);
+    const matchesCategory = !filterCategory || pub.category === filterCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="col-12"><p>No results found.</p></div>`;
+    return;
+  }
+
+  // Group by category
+  const grouped = {};
+  filtered.forEach(pub => {
+    if (!grouped[pub.category]) {
+      grouped[pub.category] = [];
     }
+    grouped[pub.category].push(pub);
+  });
+
+  // Render each category section
+  for (const category in grouped) {
+    container.innerHTML += `<div class="col-12"><h4 class="mt-5 mb-3">${category}</h4></div>`;
+    grouped[category].forEach(pub => {
+      container.innerHTML += `
+        <div class="col-md-6 mb-4">
+          <div class="p-3 border rounded bg-white shadow-sm">
+            <h5>${highlight(pub.title, searchTerm)}</h5>
+            <p><strong>Category:</strong> ${pub.category}</p>
+            <p><strong>Authors:</strong> ${highlight(pub.authors.join(', '), searchTerm)}</p>
+            <a href="${pub.link}" target="_blank" class="text-button">View Paper <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>`;
+    });
+  }
+}
+
   
     // Add event listeners
     document.getElementById('searchInput').addEventListener('input', renderPublications);
