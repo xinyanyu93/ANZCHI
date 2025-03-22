@@ -830,6 +830,115 @@
     "link": "https://programs.sigchi.org/chi/2025/program/content/189447"
   },
   {
+    "title": "Advancing Post-growth HCI",
+    "category": "Workshop",
+    "authors": [
+      "Vishal Sharma",
+      "Hongjin Lin",
+      "Asra Sakeen Wani",
+      "Jared Lee Katzman",
+      "Anupriya Tuli",
+      "Naveena Karusala",
+      "Shaowen Bardzell",
+      "Christoph Becker",
+      "Martin Tomitsch (University of Technology Sydney)",
+      "Neha Kumar"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/188477"
+  },
+
+  {
+    "title": "Affective interaction and affective computing - past, present and future",
+    "category": "Workshop",
+    "authors": [
+      "Naseem Ahmadpour (The University of Sydney)",
+      "Danielle Lottridge",
+      "Jonas Fritsch",
+      "Corina Sas",
+      "Marta E. Cecchinato",
+      "Daniel Harrison",
+      "Kristina Höök",
+      "Pin Sym Foong",
+      "Kiran Ijaz (The University of Sydney)",
+      "Phillip Gough (The University of Sydney)",
+      "Yidan Cao (The University of Sydney)",
+      "Xuefei Li (The University of Sydney)",
+      "Shaimaa Lazem",
+      "Thida Sachathep (The University of Sydney)"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/189477"
+  },
+
+  {
+    "title": "Scaling Distributed Collaboration in Mixed Reality",
+    "category": "Workshop",
+    "authors": [
+      "Adélaïde Genay (University of Melbourne)",
+  "Brandon Victor Syiem (University of Sydney)",
+  "Emily Wong (University of Melbourne, University of Sydney)",
+  "Tiare Feuchtner",
+  "Jarrod Knibbe (University of Queensland)",
+  "Jens Emil Sloth Grønbæk",
+  "Eduardo Velloso (University of Sydney)"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/188746"
+  },
+
+  {
+    "title": "The Third Workshop on Building an Inclusive and Accessible Metaverse for All",
+    "category": "Workshop",
+    "authors": [
+      "Callum Parker (University of Sydney)",
+      "Soojeong Yoo (The University of Sydney)",
+      "Joel Fredericks (The University of Sydney)",
+      "Tram Thi Minh Tran (The University of Sydney)",
+      "Mark Colley",
+      "Youngho Lee",
+      "Khanh-Duy Le",
+      "Simon Stannus",
+      "Woon­tack Woo",
+      "Mark Billinghurst (University of South Australia)"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/189600"
+  },
+
+
+  {
+    "title": "Weaving Indigeneity and Culture into the Fabric of HCI Futures",
+    "category": "Workshop",
+    "authors": [
+      "Jaydon Farao",
+  "Hafeni Mthoko",
+  "Houda Elmimouni",
+  "Ajit G. Pillai (The University of Sydney)",
+  "Marly Muudeni Samuel",
+  "Shaimaa Lazem"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/189444"
+  },
+
+  {
+    "title": "Technology Mediated Caregiving For Older Adults Aging in Place",
+    "category": "Workshop",
+    "authors": [
+      "Elizabeth D Mynatt",
+  "Masatomo Kobayashi",
+  "Alisha Pradhan",
+  "Niharika Mathur",
+  "John Vines",
+  "Katie Seaborn",
+  "Erin Buehler",
+  "Jenny Waycott (The University of Melbourne)",
+  "John Rudnik",
+  "Tamara Zubatiy",
+  "Agata Rozga"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/190358"
+  },
+
+
+
+  {
     "title": "Designed & Discovered Euphoria: Insights from Trans-Femme Players' Experiences of Gender Euphoria in Video Games",
     "category": "Full Paper",
     "authors": [
