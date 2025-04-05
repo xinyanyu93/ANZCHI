@@ -847,6 +847,10 @@ Event Info Section (same as Amazing Venues)
   overflow: hidden;
 }
 
+.eventinfo p {
+  font-size: 18px;
+}
+
 
 
 
@@ -2633,12 +2637,12 @@ responsive
   top: 0;
   width: 4px;
   height: 100%;
-  background-color: #f9b233; /* Use your preferred yellow */
+  background-color: #61B8C3; /* Use your preferred yellow */
   border-radius: 2px;
 }
 
 mark {
-  background-color: #ffe161;
+  background-color: #61B8C3;
   color: inherit;
   font-weight: 600;
 }
