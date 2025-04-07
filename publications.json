@@ -1391,5 +1391,124 @@
       "Andreas Duensen (CSIRO)"
     ],
     "link": "https://programs.sigchi.org/chi/2025/program/content/194280"
+  },
+
+  {
+    "title": "Spatial Haptics: A Sensory Substitution Method for Distal Object Detection Using Tactile Cues",
+    "category": "Full Paper",
+    "authors": [
+      "Iddo Yehoshua Wald",
+      "Donald Degraen (University of Canterbury)",
+      "Amber Maimon",
+      "Jonas Keppel",
+      "Stefan Schneegass",
+      "Rainer Malaka"
+
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/188453"
+  },
+
+  {
+    "title": "Motion-Coupled Asymmetric Vibration for Pseudo Force Rendering in Virtual Reality",
+    "category": "Full Paper",
+    "authors": [
+  "Nihar Sabnis",
+  "Maëlle Roche",
+  "Dennis Wittchen",
+  "Donald Degraen (University of Canterbury)",
+  "Paul Strohmeier"
+
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/188933"
+  },
+
+  {
+    "title": "CollabJam: Studying Collaborative Haptic Experience Design for On-Body Vibrotactile Patterns",
+    "category": "Full Paper",
+    "authors": [
+      "Dennis Wittchen",
+      "Alexander Ramian",
+      "Nihar Sabnis",
+      "Richard Böhme",
+      "Christopher Chlebowski",
+      "Georg Freitag",
+      "Bruno Fruchard",
+      "Donald Degraen (University of Canterbury)"
+
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/188960"
+  },
+
+
+  {
+    "title": "TactStyle: Generating Tactile Textures with Generative AI for Digital Fabrication",
+    "category": "Full Paper",
+    "authors": [
+      "Faraz Faruqi",
+      "Maxine Perroni-Scharf",
+      "Jaskaran Singh Walia",
+      "Yunyi Zhu",
+      "Shuyue Feng",
+      "Donald Degraen (University of Canterburyny)",
+      "Stefanie Mueller"
+
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/189573"
+  },
+
+  {
+    "title": "Demonstration of TactStyle: Generating Tactile Textures with Generative AI for Digital Fabrication",
+    "category": "Interactivity",
+    "authors": [
+      "Faraz Faruqi",
+      "Maxine Perroni-Scharf",
+      "Jaskaran Singh Walia",
+      "Yunyi Zhu",
+      "Shuyue Feng",
+      "Donald Degraen (University of Canterburyny)",
+      "Stefanie Mueller"
+
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/194190"
+  },
+
+  {
+    "title": "Demonstrating Spatial Haptics: A Sensory Substitution Method for Distal Object Detection Using Tactile Cues",
+    "category": "Interactivity",
+    "authors": [
+      "Iddo Yehoshua Wald",
+      "Donald Degraen (University of Canterbury)",
+      "Amber Maimon",
+      "Jonas Keppel",
+      "Stefan Schneegass",
+      "Rainer Malaka"
+
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/194752"
+  },
+
+  {
+    "title": "The Impact of Bike-Based Controllers and Adaptive Feedback on Immersion and Enjoyment in a Virtual Reality Cycling Exergame",
+    "category": "Late-Breaking Work",
+    "authors": [
+      "Jonas Keppel",
+      "Marvin Strauss",
+      "Shuoheng Zhang",
+      "Markus Stroehnisch",
+      "Stefan Lewin",
+      "Uwe Gruenefeld",
+      "Donald Degraen (University of Canterbury)",
+      "David Goedicke",
+      "Andrii Matviienko",
+      "Stefan Schneegass"
+    ],
+    "link": "https://programs.sigchi.org/chi/2025/program/content/194528"
   }
+
+
+
+
+
+
+
 ]
