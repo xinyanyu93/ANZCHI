@@ -1461,6 +1461,11 @@ Rent Venue Page
 ---------------------------------------------
 */
 
+.lab-page-section p {
+  font-size: 1.3rem; /* or 18px */
+  line-height: 1.6;
+}
+
 .page-heading-rent-venue {
   background-image: url(../images/rent_venue_bg.jpg);
   background-size: cover;
@@ -1470,9 +1475,9 @@ Rent Venue Page
 }
 
 .page-heading-rent-venue h2 {
-  font-size: 50px;
+  font-size: 40px;
   color: #fff;
-  font-weight: 800;
+  font-weight: 300;
   margin-bottom: 15px;
 }
 
